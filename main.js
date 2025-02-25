@@ -257,44 +257,7 @@ console.log(convertToPerson2(["John", "Doe"]));
 //
 // Migre ce code dans un module, importe le nécéssaire pour l'utiliser
 
-const cart = [];
-
-function addToCart(productInfo, quantity = 1) {
-	const cartLine = findItemInCart(productInfo.product);
-
-	if (cartLine) {
-		cartLine.quantity += quantity;
-		return;
-	}
-
-	cart.push({ ...productInfo, quantity });
-}
-
-function findItemInCart(productName) {
-	return cart.find((cartLine) => cartLine.product === productName);
-}
-
-function updateCartQuantity(productName, quantity) {
-	const cartLine = findItemInCart(productName);
-
-	if (!cartLine) {
-		addToCart(productName, quantity);
-		return;
-	}
-
-	cartLine.quantity = quantity;
-}
-
-function computeTotal() {
-	return cart.reduce((total, cartLine) => total + cartLine.quantity * cartLine.price, 0);
-}
-
-function displayAmount(amount) {
-	return Intl.NumberFormat("fr-FR", {
-		style: "currency",
-		currency: "EUR",
-	}).format(amount);
-}
+import {addToCart, displayAmount, updateCartQuantity} from "./modules/cart.js";
 
 console.log("Exercice 7");
 
