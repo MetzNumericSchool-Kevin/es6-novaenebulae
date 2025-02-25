@@ -128,7 +128,7 @@ const person = {
 };
 
 // Exercice 2.6 : Fais une décomposition du paramètre pour extraire directement le prénom et le nom
-function hello({firstname, lastname}) {
+function hello({ firstname, lastname }) {
 	console.log(`Bonjour ${firstname} ${lastname} !`);
 }
 
@@ -141,7 +141,7 @@ hello(person);
  */
 
 // Exercice 3.1 : Décompose le tableau colors pour ne garder dans le reste que les couleurs bleue et jaune
-const [ , , ...restOfColors ] = colors;
+const [, , ...restOfColors] = colors;
 
 console.log("Exercice 3.1");
 console.log(restOfColors);
@@ -149,7 +149,7 @@ console.log(restOfColors);
 // Exercice 3.2 : Décompose l'objet, de telle sorte à ce que le reste contienne seulement les clés
 // titre, editeur, tome, type, auteur
 
-const { mainCharacter, characters, ...roman2} = roman;
+const { mainCharacter, characters, ...roman2 } = roman;
 
 console.log("Exercice 3.2");
 console.log(roman2);
@@ -197,13 +197,13 @@ const adress = {
 	country: "France",
 };
 
-const completeAdress = -{...adress, postalCode: 75001 };
+const completeAdress = -{ ...adress, postalCode: 75001 };
 
 console.log("Exercice 4.3");
 console.log(completeAdress);
 
 // Exercice 4.4 : Utilise l'opérateur de dispersion pour copier l'objet person et modifier la valeur de l'age à 20
-const person2 = {...person, age: 20};
+const person2 = { ...person, age: 20 };
 
 console.log("Exercice 4.4");
 console.log(person2);
@@ -214,32 +214,19 @@ console.log(person2);
  */
 
 // Exercice 5.1 : Convertir en fonction fléchée
-const thatsAllFolks = function () {
-	console.log("That's all folks!");
-};
-
+const thatsAllFolks = () => console.log("That's all folks!");
 console.log("Exercice 5.1");
-thatsAllFolks();
+thatsAllFolks;
 
 // Exercice 5.2 : Convertir toutes les fonctions en fonction fléchée
 // Et si c'est possible, faire un return implicite
-const makeDouble = function (numbers) {
-	return numbers.map(function (number) {
-		const newNumber = number * 2;
-		return newNumber;
-	});
-};
+const makeDouble = (numbers) => numbers.map((number) => number * 2);
 
 console.log("Exercice 5.2");
 console.log(makeDouble([1, 2, 3]));
 
 // Exercice 5.3 : Convertir en fonction fléchée avec un return implicite
-function convertToPerson(firstnameLastnameTuple) {
-	return {
-		firstname: firstnameLastnameTuple[0],
-		lastname: firstnameLastnameTuple[1],
-	};
-}
+const convertToPerson = (firstnameLastnameTuple) => ({ firstname: firstnameLastnameTuple[0], lastname: firstnameLastnameTuple[1] });
 
 console.log("Exercice 5.3");
 console.log(convertToPerson(["John", "Doe"]));
