@@ -257,7 +257,7 @@ console.log(convertToPerson2(["John", "Doe"]));
 //
 // Migre ce code dans un module, importe le nécéssaire pour l'utiliser
 
-import {addToCart, displayAmount, updateCartQuantity} from "./modules/cart.js";
+import {addToCart, displayAmount, updateCartQuantity, computeTotal} from "./modules/cart.js";
 
 console.log("Exercice 7");
 
@@ -283,14 +283,12 @@ console.log(displayAmount(computeTotal()));
 
 // Exercice 8 : Transforme les opérations asynchrone avec la syntaxe async/await
 
-function loadFruits() {
-	return fetch("http://127.0.0.1:5500/data/fruits.json").then((response) => response.json());
+async function loadFruits() {
+	return (await fetch("http://127.0.0.1:5500/data/fruits.json")).json();
 }
 
-function program() {
-	loadFruits()
-		.then((fruits) => console.log(fruits))
-		.catch((error) => console.log("Problème lors du chargement des fruits", error));
+async function program() {
+	console.log(await loadFruits())
 }
 
 console.log("Exercice 8");

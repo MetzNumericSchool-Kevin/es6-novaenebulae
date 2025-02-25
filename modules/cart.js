@@ -26,7 +26,7 @@ export function updateCartQuantity(productName, quantity) {
 	cartLine.quantity = quantity;
 }
 
-function computeTotal() {
+export function computeTotal() {
 	return cart.reduce((total, cartLine) => total + cartLine.quantity * cartLine.price, 0);
 }
 
@@ -37,4 +37,4 @@ export function displayAmount(amount) {
 	}).format(amount);
 }
 
-export default {addToCart, displayAmount, updateCartQuantity};
+export default {addToCart, displayAmount, updateCartQuantity, computeTotal};
